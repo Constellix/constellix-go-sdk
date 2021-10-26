@@ -6,8 +6,7 @@ import (
 	"fmt"
 )
 
-//func ContactListsExamples() {
-func main() {
+func ContactListsExamples() {
 	constellixDns := dns.Init("", "")
 
 	//-------------------------------------------------

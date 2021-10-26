@@ -23,7 +23,7 @@ const (
 	CLIENTTYPE_SONARDNSV2
 )
 
-const dnsBaseURL = "http://apidns-c.constellix.net:9080/v4/"
+const dnsBaseURL = "https://api.dns.constellix.com/v4/"
 const sonarBaseURL = "https://api.sonar.constellix.com/rest/api/"
 
 type ApiClient struct {
@@ -153,9 +153,12 @@ func checkForErrors(resp *http.Response, bodyString string, clientType ClientTyp
 				}
 			}
 		}
-
 		if len(bodyString) == 0 {
 			return fmt.Errorf("Status code %d", resp.StatusCode)
+		}
+
+		if (clientType == CLIENTTYPE_SONAR) || (clientType == CLIENTTYPE_SONARDNSV2) {
+			return fmt.Errorf("Status code %d. Error: %s", resp.StatusCode, bodyString)
 		}
 
 		var data DNSErrorResponse
@@ -194,8 +197,7 @@ func (c *ApiClient) makeRequest(method, url string, payload []byte, clientType C
 		req.Header.Set("Content-Type", "application/json")
 		req.Header.Set("x-cns-security-token", token)
 	} else if clientType == CLIENTTYPE_SONARDNSV2 {
-		req.Header.Set("Accept", "application/vnd.sonar.v2+json")
-		req.Header.Set("Content-Type", "application/json")
+		req.Header.Set("Content-Type", "application/vnd.sonar.v2+json")
 		req.Header.Set("x-cns-security-token", token)
 	} else {
 		req.Header.Set("Content-Type", "application/json")

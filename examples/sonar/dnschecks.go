@@ -6,9 +6,8 @@ import (
 	"fmt"
 )
 
-//func SonarDNSChecksExamples() {
-func main() {
-	constellixSonar := sonar.Init("b819f051-fb78-423c-bd7a-242982b52fad", "ae77965b-0aa3-4187-939e-f21be432f9b3")
+func SonarDNSChecksExamples() {
+	constellixSonar := sonar.Init("", "")
 
 	//-------------------------------------------------
 	// get all DNS Checks
@@ -56,6 +55,16 @@ func main() {
 	} else {
 		fmt.Println()
 		fmt.Printf("Created DNS Check Id = %d\n", newCheckId)
+	}
+
+	var checkType string
+	checkType, err = constellixSonar.CheckType(newCheckId)
+	if err != nil {
+		fmt.Println("Error occured:")
+		fmt.Println(err)
+	} else {
+		fmt.Println()
+		fmt.Printf("Created DNS Check Type = %s\n", checkType)
 	}
 
 	//-------------------------------------------------

@@ -514,3 +514,52 @@ func (s *DNSCompareOption) UnmarshalJSON(b []byte) error {
 	*s = toIDDNSCO[j]
 	return nil
 }
+
+//=====================================================
+// run Traceroute
+type RunTraceroute int
+
+const (
+	RUNTRACEROUTE_NONE RunTraceroute = iota
+	RUNTRACEROUTE_DISABLED
+	RUNTRACEROUTE_ON_STATUS_CHANGE
+	RUNTRACEROUTE_WITH_CHECK
+)
+
+func (s RunTraceroute) String() string {
+	return toStringRunTR[s]
+}
+
+var toStringRunTR = map[RunTraceroute]string{
+	RUNTRACEROUTE_NONE:				"",
+	RUNTRACEROUTE_DISABLED:			"DISABLED",
+	RUNTRACEROUTE_ON_STATUS_CHANGE:	"ON_STATUS_CHANGE",
+	RUNTRACEROUTE_WITH_CHECK:		"WITH_CHECK",
+}
+
+var toRunTR = map[string]RunTraceroute{
+	"":					RUNTRACEROUTE_NONE,
+	"DISABLED":			RUNTRACEROUTE_DISABLED,
+	"ON_STATUS_CHANGE":	RUNTRACEROUTE_ON_STATUS_CHANGE,
+	"WITH_CHECK":		RUNTRACEROUTE_WITH_CHECK,
+}
+
+// MarshalJSON marshals the enum as a quoted json string
+func (s RunTraceroute) MarshalJSON() ([]byte, error) {
+	buffer := bytes.NewBufferString(`"`)
+	buffer.WriteString(toStringRunTR[s])
+	buffer.WriteString(`"`)
+	return buffer.Bytes(), nil
+}
+
+// UnmarshalJSON unmashals a quoted json string to the enum value
+func (s *RunTraceroute) UnmarshalJSON(b []byte) error {
+	var j string
+	err := json.Unmarshal(b, &j)
+	if err != nil {
+		return err
+	}
+	// Note that if the string cannot be found then it will be set to the zero value.
+	*s = toRunTR[j]
+	return nil
+}

@@ -2,7 +2,6 @@ package main
 
 import (
    "fmt"
-   "constellix.com/constellix/api/dns"
 )
 
 func main() {

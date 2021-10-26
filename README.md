@@ -5,8 +5,8 @@
 Setting apikey and secretkey over environment variables
 
 ```
-export CONSTELLIX_APIKEY=<api_key>
-export CONSTELLIX_APISECRET=<secret_key>
+export CONSTELLIX_API_KEY=<api_key>
+export CONSTELLIX_SECRET_KEY=<secret_key>
 ```
 
 ```go

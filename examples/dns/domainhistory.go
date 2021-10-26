@@ -6,9 +6,8 @@ import (
 	"fmt"
 )
 
-//func DomainHistoryExamples() {
-func main() {
-	constellixDns := dns.Init("b819f051-fb78-423c-bd7a-242982b52fad", "ae77965b-0aa3-4187-939e-f21be432f9b3")
+func DomainHistoryExamples() {
+	constellixDns := dns.Init("", "")
 	
 	var createParam dns.DomainParam
 	createParam.Name = "goexample-testdomain.com"

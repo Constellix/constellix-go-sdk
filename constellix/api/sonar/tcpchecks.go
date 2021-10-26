@@ -28,6 +28,7 @@ type TCPCheck struct {
 	ScheduleId 					int						`json:"scheduleId,omitempty"`
 	NotificationReportTimeout 	int						`json:"notificationReportTimeout,omitempty"`
 	VerificationPolicy 			VerificationPolicy		`json:"verificationPolicy,omitempty"`
+	RunTraceroute	 			RunTraceroute			`json:"runTraceroute,omitempty"`
 }
 
 type TCPCheckParam struct {
@@ -46,6 +47,7 @@ type TCPCheckParam struct {
 	ScheduleId 					int						`json:"scheduleId,omitempty"`
 	NotificationReportTimeout 	int						`json:"notificationReportTimeout,omitempty"`
 	VerificationPolicy 			VerificationPolicy		`json:"verificationPolicy,omitempty"`
+	RunTraceroute	 			RunTraceroute			`json:"runTraceroute,omitempty"`
 }
 
 func (d *TCPCheck) parse(jsonPayload string) error{

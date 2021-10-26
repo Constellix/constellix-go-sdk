@@ -34,6 +34,7 @@ type HTTPCheck struct {
 	ScheduleId 					int						`json:"scheduleId,omitempty"`
 	NotificationReportTimeout 	int						`json:"notificationReportTimeout,omitempty"`
 	VerificationPolicy 			VerificationPolicy		`json:"verificationPolicy,omitempty"`
+	RunTraceroute	 			RunTraceroute			`json:"runTraceroute,omitempty"`
 }
 
 type HTTPCheckParam struct {
@@ -58,6 +59,7 @@ type HTTPCheckParam struct {
 	ScheduleId 					int						`json:"scheduleId,omitempty"`
 	NotificationReportTimeout 	int						`json:"notificationReportTimeout,omitempty"`
 	VerificationPolicy 			VerificationPolicy		`json:"verificationPolicy,omitempty"`
+	RunTraceroute	 			RunTraceroute			`json:"runTraceroute,omitempty"`
 }
 
 func (d *HTTPCheck) parse(jsonPayload string) error{

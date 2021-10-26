@@ -6,9 +6,8 @@ import (
 	"fmt"
 )
 
-//func SonarTCPChecksExamples() {
-func main() {
-	constellixSonar := sonar.Init("b819f051-fb78-423c-bd7a-242982b52fad", "ae77965b-0aa3-4187-939e-f21be432f9b3")
+func SonarTCPChecksExamples() {
+	constellixSonar := sonar.Init("", "")
 
 	//-------------------------------------------------
 	// get all TCP Checks
@@ -18,7 +17,7 @@ func main() {
 	checks, err = constellixSonar.TCPChecks.GetAll()
 	if err != nil {
 		fmt.Println("Error occured:")
-		fmt.Println(err)	
+		fmt.Println(err)
 	} else {
 		fmt.Println()
 		fmt.Printf("Count of TCP Checks: %d\n", checks.Len())

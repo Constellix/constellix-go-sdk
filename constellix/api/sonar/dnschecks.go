@@ -20,7 +20,7 @@ type DNSCheck struct {
 	ResolverIPVersion			IPVersion				`json:"resolverIPVersion,omitempty"`
 	Note 						string					`json:"note,omitempty"`
 	ScheduleInterval 			ScheduleInterval		`json:"scheduleInterval,omitempty"`
-	ExpectedResponse			[]string				`json:"expectedResponse,omitempty"`
+	//ExpectedResponse			[]string				`json:"expectedResponse,omitempty"`
 	RecordType					RecordType				`json:"recordType,omitempty"`
 	QueryProtocol				DNSQueryProtocol		`json:"queryProtocol,omitempty"`
 	CompareOptions				DNSCompareOption		`json:"compareOptions,omitempty"`
@@ -33,6 +33,7 @@ type DNSCheck struct {
 	ScheduleId 					int						`json:"scheduleId,omitempty"`
 	NotificationReportTimeout 	int						`json:"notificationReportTimeout,omitempty"`
 	VerificationPolicy 			VerificationPolicy		`json:"verificationPolicy,omitempty"`
+	RunTraceroute	 			RunTraceroute			`json:"runTraceroute,omitempty"`
 }
 
 type DNSCheckParam struct {
@@ -43,7 +44,7 @@ type DNSCheckParam struct {
 	ResolverIPVersion			IPVersion				`json:"resolverIPVersion,omitempty"`
 	Note 						string					`json:"note,omitempty"`
 	ScheduleInterval 			ScheduleInterval		`json:"scheduleInterval,omitempty"`
-	ExpectedResponse			[]string				`json:"expectedResponse,omitempty"`
+	//ExpectedResponse			[]string				`json:"expectedResponse,omitempty"`
 	RecordType					RecordType				`json:"recordType,omitempty"`
 	QueryProtocol				DNSQueryProtocol		`json:"queryProtocol,omitempty"`
 	CompareOptions				DNSCompareOption		`json:"compareOptions,omitempty"`
@@ -56,6 +57,7 @@ type DNSCheckParam struct {
 	ScheduleId 					int						`json:"scheduleId,omitempty"`
 	NotificationReportTimeout 	int						`json:"notificationReportTimeout,omitempty"`
 	VerificationPolicy 			VerificationPolicy		`json:"verificationPolicy,omitempty"`
+	RunTraceroute	 			RunTraceroute			`json:"runTraceroute,omitempty"`
 }
 
 func (d *DNSCheck) parse(jsonPayload string) error{

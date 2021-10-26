@@ -19,8 +19,8 @@ type ConstellixDns struct {
 
 func Init(apiKey, secretKey string) (*ConstellixDns) {
 	if apiKey == "" && secretKey == "" {
-		apiKey = os.Getenv("CONSTELLIX_APIKEY")
-		secretKey = os.Getenv("CONSTELLIX_APISECRET")
+		apiKey = os.Getenv("CONSTELLIX_API_KEY")
+		secretKey = os.Getenv("CONSTELLIX_SECRET_KEY")
 	}
 
 	constellixDns := &ConstellixDns{}
